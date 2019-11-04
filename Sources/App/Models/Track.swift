@@ -17,6 +17,13 @@ final class Track: SQLiteModel {
     var artist: String
 
     var duration: Int
+
+    init(id: Int? = nil, name: String, artist: String, duration: Int) {
+        self.id = id
+        self.name = name
+        self.artist = artist
+        self.duration = duration
+    }
 }
 
 extension Track: Migration { }

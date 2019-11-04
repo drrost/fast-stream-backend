@@ -2,26 +2,16 @@ import Vapor
 
 /// Register your application's routes here.
 public func routes(_ router: Router) throws {
-    // Basic "It works" example
+
+    // '/'
     router.get { req in
-        return "It works!"
+        return "FastStream based on Swfit/Vapor"
     }
-    
-    // Basic "Hello, world!" example
-    router.get("hello") { req in
-        return "Hello, world!"
-    }
-
-    // Example of configuring a controller
-    let todoController = TodoController()
-    router.get("todos", use: todoController.index)
-    router.post("todos", use: todoController.create)
-    router.delete("todos", Todo.parameter, use: todoController.delete)
-
 
     // MARK: - Track
     let trackController = TrackController()
-    router.get("track", use: trackController.index)
-    router.post("track", use: trackController.create)
-    router.delete("track", Todo.parameter, use: trackController.delete)
+    let trackMethod = "track"
+    router.get(trackMethod, use: trackController.index)
+    router.post(trackMethod, use: trackController.create)
+    router.delete(trackMethod, Track.parameter, use: trackController.delete)
 }

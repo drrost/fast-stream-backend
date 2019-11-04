@@ -31,7 +31,6 @@ public func configure(_ config: inout Config,
 
     // Configure migrations
     var migrations = MigrationConfig()
-    migrations.add(model: Todo.self, database: .sqlite)
     migrations.add(model: Track.self, database: .sqlite)
     services.register(migrations)
 }
